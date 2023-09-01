@@ -13,20 +13,19 @@
 }
 
 .custom-link {
-  background-color: rgb(99, 101, 35);
+  background-color: rgb(17, 41, 8);
   display: block;
-  padding: 10px;
+  padding: 8px !important;
   text-align: center;
   border-radius: 5px;
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-  margin: 0.3rem 0;
+  margin: 0.3rem 0 !important;
   border: 1px solid rgb(246, 188, 188);
 }
 
 .custom-link:hover {
-  background-color: #fff;
-  color: #000;
-  border-color: #000;
+  background-color: #206210;
+  border: 1px solid rgb(246, 188, 188);
 }
 
 .custom-link:focus {
@@ -36,12 +35,12 @@
 }
 
 .custom-link:active {
-  background-color: #007bff;
-  color: #fff;
-  border-color: #007bff;
+  background-color: #45494c;
+  color: #c89393;
+  border-color: #45494c;
 }
 .social-icons {
-  display: flex; /* Afficher les icônes dans une ligne */
+  display: flex; /* Affiche les icônes dans une ligne */
   gap: 0.6rem; /* Espacement horizontal entre les icônes */
   border: 1px solid #ccc; /* Bordure autour des icônes */
   padding: 7px; /* Espacement interne pour l'encadré */

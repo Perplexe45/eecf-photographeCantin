@@ -5,8 +5,10 @@ body {
 .fullscreen-image {
   position: relative;
   overflow: hidden;
-  display: flex; /* Utilisez flex pour centrer verticalement l'image */
+  display: flex;
   align-items: center;
+  justify-content: center;
+  
 }
 
 .fullscreen-image img {
@@ -29,6 +31,6 @@ body {
 }
 
 .centered-content h1 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: bold;
 }

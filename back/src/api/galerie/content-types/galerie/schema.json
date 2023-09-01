@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "galeries",
+  "info": {
+    "singularName": "galerie",
+    "pluralName": "galeries",
+    "displayName": "galerie"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nom": {
+      "type": "string"
+    }
+  }
+}

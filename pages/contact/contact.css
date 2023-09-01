@@ -1,0 +1,81 @@
+body {
+  background-color: rgb(87, 102, 102);
+}
+.custom-form {
+  border: 1px solid black;
+  width: 900px;
+  height : 23rem !important;
+  margin: 0 auto;
+  padding: 6px 20px;
+  border-radius: 10px; /* Ajout de l'arrondi des coins */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Ajout d'une légère ombre */
+  background-color : #233222;
+}
+
+.formButton {
+  background-color: #316228; ; /* Couleur de fond */
+  color: #FFFFFF; /* Couleur du texte */
+  border: 1px solid #233222; /* Bordure en contraste */
+  padding: 6px 15px; /* Espacement intérieur */
+  border-radius: 5px; /* Coins arrondis */
+  cursor: pointer; /* Curseur de type main au survol */
+  transition: background-color 0.3s, color 0.3s; /* Transition fluide */
+}
+
+.formButton:hover {
+  background-color: #548354; /* Variation de la couleur de fond */
+  color: #FFFFFF; /* Variation de la couleur de texte */
+}
+
+/* Styles pour le formulaire */
+.styleForms {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+}
+
+.custom-h1 {
+  display: block;
+  border: 1px solid black;
+  background-color: #222;
+  position: absolute;
+  top: 10%;
+  left: 20%;
+  width: 60%;
+}
+
+.title-h1 {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 8px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.custom-h1 h1{
+  color: rgb(193, 155, 155);
+}
+
+.success-message {
+  color: #ffffff; /* Couleur du texte en blanc */
+  font-size: 16px; /* Taille de la police */
+  margin-top: 10px; /* Marge en haut pour espacer le message du formulaire */
+  text-align: center; /* Alignement du texte au centre */
+  padding: 10px; /* Espace intérieur autour du texte */
+  border-radius: 5px; /* Coins légèrement arrondis */
+  background-color: #28a745; /* Couleur de fond en vert */
+}
+
+.error-message {
+  color: #ffffff; /* Couleur du texte en blanc */
+  font-size: 16px; /* Taille de la police */
+  margin-top: 10px; /* Marge en haut pour espacer le message du formulaire */
+  text-align: center; /* Alignement du texte au centre */
+  padding: 10px; /* Espace intérieur autour du texte */
+  border-radius: 5px; /* Coins légèrement arrondis */
+  background-color: #ff0000; /* Couleur de fond en rouge */
+}
+

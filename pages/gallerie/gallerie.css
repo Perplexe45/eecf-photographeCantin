@@ -1,0 +1,75 @@
+body {
+  background-color: rgb(87, 102, 102);
+}
+
+.title-h1 {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  font-size: 36px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.bubble-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14rem;
+  height: 14rem;
+  background-color: #f0f0f0;
+  border-radius: 50%;
+  margin: 20px 60px; 
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: relative;
+  overflow: hidden; /* Empêche le texte de sortir de la bulle */
+}
+
+.bubble-content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.bubble-image {
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.bubble-text {
+  font-size: 26px;
+  color: #fff; /* Couleur du texte */
+  background-color: rgba(0, 0, 0, 0.6); /* Fond semi-transparent */
+  padding: 0.1px 5px !important;
+  border-radius: 10px;
+  position: absolute;
+  top: 85%; /* Centrer verticalement */
+  left: 50%; /* Centrer horizontalement */
+  transform: translate(-50%, -50%); /* Centrer parfaitement */
+  white-space: nowrap; /* Empêcher le texte de passer à la ligne */
+}
+
+.bubble-button:hover {
+  background-color: #ddd;
+}
+

@@ -1,8 +1,10 @@
-
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Inter } from 'next/font/google';
 import Container from '../../components/Container/Container';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import { Inter } from 'next/font/google';
+
 import Head from 'next/head';
+//import './globals.css';
 import { styles } from "./../../styles/container.css";
 
 
