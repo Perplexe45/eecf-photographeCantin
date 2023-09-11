@@ -8,6 +8,7 @@ export default function Home() {
 			<div className="container px-5 pt-5">
 				<div className="fullscreen-image">
 					<Image
+						layout="responsive"
 						src="/cantin.jpg"
 						alt="Image d'accueil"
 						width={500}

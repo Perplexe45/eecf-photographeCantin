@@ -4,15 +4,20 @@
   "info": {
     "singularName": "galerie",
     "pluralName": "galeries",
-    "displayName": "galerie"
+    "displayName": "galerie",
+    "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
     "nom": {
-      "type": "string"
+      "type": "string",
+      "required": true
+    },
+    "identif": {
+      "type": "integer"
     }
   }
 }
