@@ -1,24 +1,26 @@
 import Image from "next/image";
-import "../app/page.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import styles from './page.module.css';
+import './globals.css';
+
 
 export default function Home() {
 	return (
 		<>
-			<div className="container px-5 pt-5">
-				<div className="fullscreen-image">
-					<Image
-						layout="responsive"
-						src="/cantin.jpg"
-						alt="Image d'accueil"
-						width={500}
-						height={500}
-					/>
-					<div className="centered-content">
-						<h1>Charles Cantin - Photographe</h1>
+				<div className="container">
+					<div>
+						<Image
+							layout="fill"
+							src="/cantin.jpg"
+							alt="Image d'accueil"
+							objectFit="contain"
+						/>
+						<div className={styles.centeredContent}>
+							<h1>Charles Cantin - Photographe</h1>
+						</div>
+						
 					</div>
 				</div>
-			</div>
 		</>
 	);
 }

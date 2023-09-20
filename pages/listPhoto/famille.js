@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Container from "components/Container/Container";
-import BubbleButtons from "components/BubbleButtons";// Import du composant BubbleButton
-import "bootstrap/dist/css/bootstrap.min.css";
+import BubbleButtons from "components/BubbleButtons";
 import "../galerie/galerie.css";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import styles from './../../src/app/page.module.css'
 
-
-export default function CouplePage() {
+export default function FamillePage() {
   const router = useRouter();
   const { id } = router.query;
 
@@ -16,11 +14,10 @@ export default function CouplePage() {
   const imageHeight = 500;
 
   const [photos, setPhotos] = useState([]); //Les photos dans un tableau 
-  const [selectedButton, setSelectedButton] = useState("");//Pour l'import du composant BubbleButton
 
   useEffect(() => {
     // Effectue la requête pour obtenir les données des photos depuis l'API de Strapi
-    fetch(`http://localhost:1337/api/photos/?populate[image][populate]=deep&filters[nom][$contains]=couple`)
+    fetch(`http://localhost:1337/api/photos/?populate[image][populate]=deep&filters[nom][$contains]=famille`)
       .then((response) => response.json())
       .then((data) => setPhotos(data.data)) //Fait varier le  useState et enregistré dans la variable 'photos'
       .catch((error) => console.error(error));
@@ -38,25 +35,22 @@ export default function CouplePage() {
       <Container />
       <div className="container blockPhoto pt-5">
         <div className={styles.title}>
-          <h1 className="text-center">Photos de couples</h1>
+          <h1 className="text-center">Photos de familles</h1>
         </div>
 
-       <BubbleButtons></BubbleButtons>
-
+        <BubbleButtons></BubbleButtons>
 
         <div className="row g-0 mt-5 d-flex justify-content-center">
           {photos.map((photo) => ( //photos -> Récup de la variable du useState grace au fetch
-            
             <div
               key={photo.id}
               className="col-md-3 d-flex cursor-pointer photo-frame"
               onClick={() => openImageFullScreen(`http://localhost:1337${photo.attributes.image.data.attributes.url}`)}
             >
-              
               <div className="photo-frame">
                 {photo.attributes.image && photo.attributes.image.data && photo.attributes.image.data.attributes && (
                   <>
-                   <div className="image-container">
+                    <div className="image-container">
                       <Image
                         src={`http://localhost:1337${photo.attributes.image.data.attributes.url}`}
                         alt={photo.attributes.nom}
@@ -66,7 +60,6 @@ export default function CouplePage() {
                       />
                         <p className="image-text ms-3 me-3 mb-1 hover-message">Agrandir la photo</p>
                     </div>
-                    
                   </>
                 )}
               </div>

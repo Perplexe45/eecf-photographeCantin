@@ -1,14 +1,15 @@
+"use client";
 import "bootstrap/dist/css/bootstrap.min.css";
+import styles from './../../src/app/page.module.css';
 import Container from "components/Container/Container";
 import React, { useState, useEffect } from "react";// Import du hook useState
 import { useRouter } from "next/router";
-import "./../gallerie/gallerie.css";
+import "./../galerie/galerie.css";
 import Image from "next/image";
 import Link from "next/link";
 
 
-export default function Index() {
-  const [clickedButton, setClickedButton] = useState(null);
+export default function Index({ themes }) {
   const [photos, setPhotos] = useState([]); // Déclaration unique de useState
 
   const handleButtonClick = (label) => {
@@ -23,38 +24,36 @@ export default function Index() {
     );
   };
 
-  const handleMouseEnter = (event) => {
-    const hoverMessage = event.currentTarget.querySelector(".hover-message");
-    hoverMessage.style.transform = "translateY(0)";
-  };
+  const paddingValue = 8; //pb avec image des petites vignettes
 
-  const handleMouseLeave = (event) => {
-    const hoverMessage = event.currentTarget.querySelector(".hover-message");
-    hoverMessage.style.transform = "translateY(100%)";
-  };
-
-  useEffect(() => {
+   useEffect(() => {
     fetch("http://localhost:1337/api/photos/?populate[image][populate]=deep")
       .then((response) => response.json())
       .then((data) => setPhotos(data.data))
       .catch((error) => console.error(error));
   }, []);
 
+  // Photos de la galerie au hasard sinon, ce ne seront que les premières enregistrées
+  const shuffledPhotos = [...photos].sort(() => Math.random() - 0.5);
+
+  // Les 15 premières photos au hasard, sinon ça fait trop
+  const selectedPhotos = shuffledPhotos.slice(0, 20);
+
 
   return (
     <>
-      <Container />
-      <div className="container pt-4 mt-4 ps-5">
-        <div className="title-h1">
+      <Container/>
+      <div className="container blockGallery pt-5">
+        <div className={styles.title}>
           <h1 className="text-center">Ma galerie de photos</h1>
         </div>
-
-			  <div className=" subTitle mt-5 ">
+        <br></br>
+			  <div className=" subTitle mt-1">
 					<h2 className="text-center">Choisir un théme</h2>
 				</div>
         
           {/* Bulles bouton des thémes */}
-          <div className=" ps-3 cadreBubble">
+          <div className="cadreBubble">
             <div className="row justify-content-center ">
               <BubbleButton
                 label="couple"  
@@ -97,56 +96,47 @@ export default function Index() {
        </div>
           
 
-      <div className="container mt-5">
-		
-				<div className="text-center mb-3 subTitle">
-					<h2 >Mes plus belles réalisations</h2>
+      <div className="container blockGallery">
+        <br></br>
+				<div className="text-center mt-5 subTitle">
+					<h2 >Quelques exemples de mes réalisation</h2>
 				</div>
 
-				<div className="row ps-4">
-
-					{photos.map((photo) => {
-						return (
-							<div key={photo.id} className="col-md-2 mb-4 photo-card"  onClick={() =>
+				<div className="row d-flex justify-content-center"> 
+          {selectedPhotos.map((photo) => { //Boucle pour afficher chaque photos
+            return (
+              <div key={photo.id} className="col-md-2 photo-card "
+                style={{
+                  margin: '10px', // Ajoute de la marge autour de chaque photo
+                  padding: `8px 8px ${paddingValue}px`,
+                  backgroundColor: '#f0f0f0', // Couleur de fond pour l'encadré des photos
+              }} onClick={() =>
                 openImageFullScreen(
                   `http://localhost:1337${photo.attributes.image.data.attributes.url}`
                 )
-              }
-                >  
-               <Image 
-                  src={`http://localhost:1337${photo.attributes.image.data.attributes.url}`}
-                  alt={photo.attributes.nom}
-                  width={300} 
-                  height={200} 
-                />
-                <p className="hover-message">Cliquez sur la photo</p>
-             
-              
-              <div className="card">
-                <div
-                  style={{
-                    position: "relative",
-                    width: "100%",
-                    height: "10 0",
-                    paddingBottom: "100%",
-                  }}
-                >
-                {photo.attributes.image && (
-                    <Image
-                      alt={photo.attributes.nom}
-                      layout="fill"
-                      objectFit="cover"
-                      src={`http://localhost:1337${photo.attributes.image.data.attributes.url}`}
-                    />
-                  )}
-                </div>
-                <div className="card-body text-center">
-                  <p className="card-title">{photo.attributes.nom}</p>
-                  <p className="card-text ">{photo.attributes.date}</p>
+              }>  
+              <Image 
+                src={`http://localhost:1337${photo.attributes.image.data.attributes.url}`}
+                alt={photo.attributes.nom}
+                width={250} 
+                height={250} 
+      
+              />
+
+              <p className="ms-3 me-3 mb-2 hover-message">Cliquez sur la photo</p>
+                 <div className="card">
+                  <div
+                    style={{
+                      position: "relative",
+                      width: "100%",
+                      height: "100%",
+                      paddingBottom: "100%",
+                    }}
+                  >
+                  </div>
                 </div>
               </div>
-            </div>
-						);
+              );
 					})}
 				</div>
 		</div>

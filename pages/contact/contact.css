@@ -1,10 +1,10 @@
 body {
-  background-color: rgb(87, 102, 102);
+  background-color: #1D2424;
 }
 .custom-form {
   border: 1px solid black;
   width: 900px;
-  height : 23rem !important;
+  min-height : 23rem !important;
   margin: 0 auto;
   padding: 6px 20px;
   border-radius: 10px; /* Ajout de l'arrondi des coins */
@@ -28,13 +28,7 @@ body {
 }
 
 /* Styles pour le formulaire */
-.styleForms {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  
-}
+
 
 .custom-h1 {
   display: block;
@@ -50,7 +44,7 @@ body {
   max-width: 800px;
   margin: 0 auto;
   padding: 8px;
-  background-color: #fff;
+  background-color: #bbb;
   border-radius: 10px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
@@ -77,5 +71,10 @@ body {
   padding: 10px; /* Espace intérieur autour du texte */
   border-radius: 5px; /* Coins légèrement arrondis */
   background-color: #ff0000; /* Couleur de fond en rouge */
+}
+
+.blockGallery {
+  background-color: rgb(29, 36, 36) ;
+ 
 }
 

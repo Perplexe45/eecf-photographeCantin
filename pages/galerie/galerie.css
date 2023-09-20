@@ -1,0 +1,178 @@
+body {
+  background-color: #1D2424
+}
+
+h1 {
+  /* text-align: center;*/
+  color: #333;
+  font-size: 36px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.subTitle {
+  max-width: 30rem;
+  margin: 0 auto;
+  background-color: grey !important;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.photo-card {
+  height: 10rem;
+  overflow: hidden;
+  cursor: pointer; /* Ajoute le curseur de la main */
+  position: relative; /* positionne le message */
+  border-radius: 8%;
+}
+
+.photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s; /* Ajoute une transition fluide lors du survol */
+  border-radius: 8%;
+}
+
+.cursor-pointer:hover {
+  cursor: pointer;
+}
+
+.hover-message{
+  position: absolute;
+  bottom: -50%; /* Déplace le texte en dehors de la vue par défaut */
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  text-align: center;
+  padding: 0.4rem;
+  opacity: 0.8;
+  transition: bottom 0.3s; /* Anime la propriété "bottom" */
+    }
+
+.photo-card:hover .hover-message {
+  bottom: 0; /* message tout en bas de l'image */
+}
+
+.photo-card:hover img, .photo:hover {
+  transform: scale(1.02); /* Agrandi l'image de 2% au survol */
+ }
+
+
+.bubble-button {
+  display: inline-flex;
+  justify-content: center;
+  width: 9.1rem;
+  height: 9.1rem;
+  background-color: #f0f0f0;
+  border-radius: 50%;
+  margin: 1rem ; 
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: relative;
+  overflow: hidden; /* Empêche le texte de sortir de la bulle */
+}
+
+.bubble-content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.bubble-image {
+  object-fit: cover;
+  border-radius: 50%; /* Image ronde */
+}
+
+.bubble-text {
+  font-size: 1.2rem;
+  color: #fff; /* Couleur du texte */
+  background-color: rgba(0, 0, 0, 0.6); /* Fond semi-transparent */
+  padding: 0.1px 5px !important;
+  border-radius: 10px;
+  position: absolute;
+  top: 78%; /* Centre verticalement */
+  left: 50%; /* Centre horizontalement */
+  transform: translate(-50%, -50%); /* Centre parfaitement */
+  white-space: nowrap; /* Empêche le texte de passer à la ligne */
+}
+
+.bubble-button:hover {
+  background-color: #ddd;
+}
+
+.themeBox {
+  padding-top:3rem
+}
+
+.cadreBubble {
+  margin-top:0.9rem;
+  border: 1px solid green; /* Définit la bordure avec une largeur de 1px et une couleur blanche */
+  border-radius: 10px; /* Définit le rayon de l'arrondi des coins à 10px*/
+  padding: 10px; /* Ajoute un espace intérieur de 10px pour le contenu à l'intérieur du cadre */
+  background-color: #6e7e7e ; /* Définit la couleur d'arrière-plan du cadre */
+}
+
+.photo {
+  width: 100%; /* occupe toute la largeur disponible */
+  height: 100%; /* occupe toute la hauteur disponible */
+  object-fit: cover; /* centre l'image et rempli tout l'espace */
+}
+
+.photo:hover {
+  cursor: pointer;
+}
+
+.blockPhoto{
+  background-color: rgb(29, 36, 36) ;
+  min-height: 80rem;
+  
+}
+
+.blockGallery {
+  background-color: rgb(29, 36, 36) ;
+}
+
+.photo-frame {
+  background-color: #6E7E7E; /* Couleur de fond pour l'encadré */
+  border-radius: 6%; /* Coins arrondis pour l'encadré */
+  overflow: hidden; /* Cache le débordement des images */
+  margin: 20px; /* Marge inférieure entre les encadrés */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre légère pour l'encadré */
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.photo {
+  display: block;
+}
+
+.image-text {
+  position: absolute;
+  bottom:0px; /* Ajuste les valeurs pour positionner le texte où on le veut */
+  left: 10px;
+  color: white; /* Couleur du texte */
+  background-color: rgba(0, 0, 0, 0.7); /* Fond semi-transparent pour améliorer la lisibilité du texte */
+  padding: 3px;
+  opacity: 0; /* Masque le texte par défaut */
+  transition: opacity 5s; /* Ajoute une transition en douceur */
+}
+
+.image-container:hover .image-text {
+  opacity: 1; /* Affiche le texte lorsque le conteneur est survolé */
+}

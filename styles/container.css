@@ -1,15 +1,12 @@
 .navbar {
-  position: fixed;
-  height: 100vh;
-  width: 8.5rem;
-  background-color: rgb(44, 39, 39);
+  background-color: rgb(36, 32, 32);
 }
 
 .navbar-brand {
-  display: inline-block;
-  margin: 0;
+  display: block;
+  margin-right: 0.5rem !important; /* Ajuste la marge horizontale */
   text-align: center;
-  width: 100%; /* Pour occuper toute la largeur */
+  width: auto; /* supprimer la largeur fixe */
 }
 
 .custom-link {
@@ -19,13 +16,21 @@
   text-align: center;
   border-radius: 5px;
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-  margin: 0.3rem 0 !important;
   border: 1px solid rgb(246, 188, 188);
+  color: #fff;
 }
 
 .custom-link:hover {
   background-color: #206210;
   border: 1px solid rgb(246, 188, 188);
+}
+
+.custom-link:focus,
+.custom-link:active {
+  outline: none;
+  background-color: #206210;
+  border-color: #45494c;
+  color: #fff;
 }
 
 .custom-link:focus {
@@ -35,26 +40,39 @@
 }
 
 .custom-link:active {
-  background-color: #45494c;
-  color: #c89393;
+  background-color: #206210;
+  color: #206210;
   border-color: #45494c;
 }
+
 .social-icons {
-  display: flex; /* Affiche les icônes dans une ligne */
-  gap: 0.6rem; /* Espacement horizontal entre les icônes */
-  border: 1px solid #ccc; /* Bordure autour des icônes */
-  padding: 7px; /* Espacement interne pour l'encadré */
-  border-radius: 5px; /* Coins arrondis de l'encadré */
+  display: flex;
+  gap: 0.6rem;
+  padding: 7px;
+  border-radius: 5px;
 }
 
 .social-icons a {
-  text-decoration: none; /* Supprimer la décoration du lien */
-  color: #333; /* Couleur du lien */
-  transition: color 0.3s ease; /* Animation de transition pour la couleur au survol */
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s ease;
 }
 
-.social-icons a:hover {
-  color: #007bff; /* Couleur du lien au survol */
+@media (max-width: 767px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar-toggler {
+    display: block;
+  }
+
+  .navbar-collapse {
+    display: none;
+  }
+
+  .navbar-collapse.show {
+    display: block;
+  }
 }
-
-
