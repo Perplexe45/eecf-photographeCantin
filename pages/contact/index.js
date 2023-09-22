@@ -1,9 +1,9 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import Container from "components/Container/Container";
 import "./contact.css";
+import styles from './../../src/app/page.module.css';
 import "../../node_modules/@fortawesome/fontawesome-free/css/all.css";
 import React, { useRef, useState } from "react";
-
 
 export default function Contact() {
   const nameForm = useRef();
@@ -60,19 +60,18 @@ export default function Contact() {
       setError("Une erreur s'est produite. Veuillez réessayer plus tard.");
       setSubmissionSuccess(false); // Réinitialise le succès de la soumission en cas d'erreur
     }
-  };
+  };  
 
   return (
     <>
       <Container />
-      <div className="container blockGallery pt-5 mt-5">
-        <div className="title-h1">
-          <h1 className="text-center">Contactez-moi</h1>
+      <div className="container blockGallery pt-5">
+        <div className={styles.title}>
+          <h1 className="text-center pt-0">Contactez-moi</h1>
         </div>
-				<hr /><hr />
-
+        {/* <hr className="baliseHR"/> */}
         <div className="d-flex justify-content-center align-items-center">
-          <form onSubmit={handleSubmit} className="customForms">
+          <form onSubmit={handleSubmit} className="customForms p-4 rounded-lg border">
             {/* Nom - prénom */}
             <div className="row g-3 mt-1">
               <div className="col-md-6 col-sm-11 col-10 mx-auto">
@@ -223,4 +222,3 @@ export default function Contact() {
     </>
   );
 }
-

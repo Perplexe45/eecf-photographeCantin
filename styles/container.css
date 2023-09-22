@@ -1,11 +1,14 @@
 .navbar {
-  background-color: rgb(36, 32, 32);
+  /* background-color: rgb(36, 32, 32); */
+  background-color: rgb(67, 64, 64);
 }
 
 .navbar-brand {
   display: block;
   margin-right: 0.5rem !important; /* Ajuste la marge horizontale */
   text-align: center;
+  font-size: 20px;
+  padding: 10px;
   width: auto; /* supprimer la largeur fixe */
 }
 
@@ -18,6 +21,8 @@
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
   border: 1px solid rgb(246, 188, 188);
   color: #fff;
+  font-size: 20px;
+  padding: 10px;
 }
 
 .custom-link:hover {
@@ -58,21 +63,82 @@
   transition: color 0.3s ease;
 }
 
-@media (max-width: 767px) {
-  .navbar {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .navbar-toggler {
-    display: block;
-  }
-
-  .navbar-collapse {
+@media (max-width: 992px) {
+  .logo {
     display: none;
   }
 
-  .navbar-collapse.show {
-    display: block;
+  /*disparition du bouton 'connexion' en format mobile -> pas d'intérêt */
+  .navbar-brand.custom-link:last-child {
+    display: none;
   }
+
+  /* Styles des boutons de navigation réduits */
+  .navbar-brand.custom-link {
+    font-size: 14px;
+    padding: 3px 8px;
+  }
+
+  /* Aligner les boutons et les icônes des réseaux sociaux sur la même ligne */
+  .navbar-collapse.show {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+    /* Réduire la taille des icônes de réseaux sociaux */
+    .social-icons a {
+      font-size: 8px !important;
+    }
+
+
 }
+
+/* Appareils mobiles avec une largeur d'écran maximale de 768px */
+@media (max-width: 768px) {
+  /* Masquer le logo */
+  .logo {
+    display: none;
+  }
+
+  /* Styles des boutons de navigation mobile */
+  .navbar-brand.custom-link {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  /* Styles de la barre de navigation mobile déployée */
+  .navbar-collapse.show {
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  /* Styles des boutons de navigation mobile déployés */
+  .navbar-collapse.show .navbar-brand.custom-link {
+    color: #fff;
+  }
+
+  /* Aligner les boutons et les icônes des réseaux sociaux sur la même ligne */
+  .navbar-collapse.show {
+    flex-direction: row;
+  }
+
+  /* Styles des icônes de réseaux sociaux */
+  .social-icons {
+    flex-direction: row;
+  }
+
+  /*Réduit la taille des polices  */
+  .navbar-brand.custom-link {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+
+
+  
+}
+
+
+

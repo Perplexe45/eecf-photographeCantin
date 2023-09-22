@@ -34,13 +34,17 @@ export default function GrossessePage() {
   return (
     <>
       <Container />
-      <div className="container blockPhoto pt-5"><div className={styles.title}>
+
+      <div className="container mt-5 pt-5">
+        <BubbleButtons></BubbleButtons>
+      </div>
+
+      <div className="container blockPhoto pt-3">
+        <div className={styles.title}>
           <h1 className="text-center">Photos de grossesses</h1>
         </div>
 
-        <BubbleButtons></BubbleButtons>
-
-        <div className="row g-0 mt-5 d-flex justify-content-center">
+        <div className="row g-0 d-flex justify-content-center">
           {photos.map((photo) => ( //photos -> Récup de la variable du useState grace au fetch
             <div
               key={photo.id}

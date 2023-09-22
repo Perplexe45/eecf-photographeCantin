@@ -1,6 +1,7 @@
-import 'bootstrap/dist/css/bootstrap.min.css'
-import Container from 'components/Container/Container'
-import styles from './../tarif/tarif.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Container from 'components/Container/Container';
+import "./tarif.css";
+import styles from './../../src/app/page.module.css';
 
 
 
@@ -8,19 +9,20 @@ export default function index() {
 
 	return (
 		<>
-
-	<div className={styles.container}>
-		<Container>	</Container>	
-        <div className="container blockGallery">
-            <div className=" blockGallery pt-5">
-                <div className="title-h1 mt-5">
-                    <h1 className="text-center">Tarifs et Prestations</h1>
-                    <p className="text-center">Mes services</p>			
-                </div>
-            </div>
+		<Container />
+		<div className="container">
+		  <div className="container blockGallery">
+        <div className="pt-5">
+            <div className={styles.title} >
+            <h1 className="text-center pb-1">Tarifs et Prestations</h1>
+            <p className>Mes services</p>
+				</div>
+        </div>
+      
+            
             <div className="row blockGallery">
-            <div className="col-md-12">
-                <div className="blockGallery highlighted">
+             <div className="col-md-12">
+                <div className="highlighted">
                     <h4 className="text-center bg-light-subtle py-4 ">
                         Comme tout bon photographe qui se respecte, je vous présente mes honoraires.
                         Ils varient selon le thème choisi.

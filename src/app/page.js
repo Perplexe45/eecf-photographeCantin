@@ -1,8 +1,6 @@
 import Image from "next/image";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styles from './page.module.css';
-import './globals.css';
-
 
 export default function Home() {
 	return (
@@ -16,7 +14,7 @@ export default function Home() {
 							objectFit="contain"
 						/>
 						<div className={styles.centeredContent}>
-							<h1>Charles Cantin - Photographe</h1>
+							<h1 className={styles.homeH1}>Charles Cantin - Photographe</h1>
 						</div>
 						
 					</div>

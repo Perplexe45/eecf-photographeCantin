@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Container from "components/Container/Container";
-import BubbleButtons from "components/BubbleButtons";
+import BubbleButtons from "components/BubbleButtons";// Import du composant BubbleButton
+import "bootstrap/dist/css/bootstrap.min.css";
 import "../galerie/galerie.css";
 import { useRouter } from "next/router";
 import Image from "next/image";
@@ -33,14 +34,19 @@ export default function FamillePage() {
   return (
     <>
       <Container />
-      <div className="container blockPhoto pt-5">
+
+      <div className="container mt-5 pt-5">
+        <BubbleButtons></BubbleButtons>
+      </div>
+
+      <div className="container blockPhoto pt-3">
         <div className={styles.title}>
           <h1 className="text-center">Photos de familles</h1>
         </div>
 
-        <BubbleButtons></BubbleButtons>
+       
 
-        <div className="row g-0 mt-5 d-flex justify-content-center">
+        <div className="row g-0 d-flex justify-content-center">
           {photos.map((photo) => ( //photos -> Récup de la variable du useState grace au fetch
             <div
               key={photo.id}

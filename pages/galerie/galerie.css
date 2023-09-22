@@ -5,7 +5,7 @@ body {
 h1 {
   /* text-align: center;*/
   color: #333;
-  font-size: 36px;
+  font-size: 2rem;
   text-transform: uppercase;
   letter-spacing: 1.5px;
 }
@@ -121,7 +121,7 @@ h1 {
   margin-top:0.9rem;
   border: 1px solid green; /* Définit la bordure avec une largeur de 1px et une couleur blanche */
   border-radius: 10px; /* Définit le rayon de l'arrondi des coins à 10px*/
-  padding: 10px; /* Ajoute un espace intérieur de 10px pour le contenu à l'intérieur du cadre */
+  padding: 1rempx; /* Ajoute un espace intérieur de 10px pour le contenu à l'intérieur du cadre */
   background-color: #6e7e7e ; /* Définit la couleur d'arrière-plan du cadre */
 }
 

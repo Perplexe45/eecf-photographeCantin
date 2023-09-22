@@ -45,7 +45,7 @@ export default function Index({ themes }) {
       <Container/>
       <div className="container blockGallery pt-5">
         <div className={styles.title}>
-          <h1 className="text-center">Ma galerie de photos</h1>
+          <h1 className="text-center pt-1">Ma galerie de photos</h1>
         </div>
         <br></br>
 			  <div className=" subTitle mt-1">
