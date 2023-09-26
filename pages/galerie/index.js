@@ -7,10 +7,12 @@ import { useRouter } from "next/router";
 import "./../galerie/galerie.css";
 import Image from "next/image";
 import Link from "next/link";
+import axios from 'axios'; //Pour ne pas recharger la page
 
 
 export default function Index({ themes }) {
   const [photos, setPhotos] = useState([]); // Déclaration unique de useState
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
   const handleButtonClick = (label) => {
     setClickedButton(label);
@@ -26,18 +28,27 @@ export default function Index({ themes }) {
 
   const paddingValue = 8; //pb avec image des petites vignettes
 
-   useEffect(() => {
-    fetch("http://localhost:1337/api/photos/?populate[image][populate]=deep")
-      .then((response) => response.json())
-      .then((data) => setPhotos(data.data))
-      .catch((error) => console.error(error));
-  }, []);
+  useEffect(() => { //Utilisation de la bibliothèque axios pour ne pas recharger la page continuellement
+    axios.get("http://localhost:1337/api/photos/?populate[image][populate]=deep") //Requête de Strapi pour les photos.
+      .then((response) => {
+        const data = response.data.data;
+        setPhotos(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+}, []);
 
   // Photos de la galerie au hasard sinon, ce ne seront que les premières enregistrées
   const shuffledPhotos = [...photos].sort(() => Math.random() - 0.5);
 
-  // Les 15 premières photos au hasard, sinon ça fait trop
+  // Les 20premières photos au hasard, sinon ça fait trop
   const selectedPhotos = shuffledPhotos.slice(0, 20);
+
+    // Filtrer les photos selon la catégorie sélectionnée
+    const filteredPhotos = selectedCategory
+    ? photos.filter((photo) => photo.category === selectedCategory) //ternaire pour filtrer les catégories de photos
+    : photos;
 
 
   return (
@@ -48,7 +59,7 @@ export default function Index({ themes }) {
           <h1 className="text-center pt-1">Ma galerie de photos</h1>
         </div>
         <br></br>
-			  <div className=" subTitle mt-1">
+			  <div className=" subTitle mt-3">
 					<h2 className="text-center">Choisir un théme</h2>
 				</div>
         
@@ -58,37 +69,37 @@ export default function Index({ themes }) {
               <BubbleButton
                 label="couple"  
                 imageUrl="/couples.png"
-                onClick={handleButtonClick}
+                onClick={() => setSelectedCategory("couple")} //fait varier le useState
               />
               <BubbleButton
                 label="mariage"
                 imageUrl="/mariage.png"
-                onClick={handleButtonClick}
+                onClick={() => setSelectedCategory("mariage")}
               />
               <BubbleButton
                 label="grossesse"
                 imageUrl="/grossesse.png"
-                onClick={handleButtonClick}
+                onClick={() => setSelectedCategory("grossesse")}
               />
               <BubbleButton
                 label="bebe"
                 imageUrl="/bebe.png"
-                onClick={handleButtonClick}
+                onClick={() => setSelectedCategory("bebe")}
               />
               <BubbleButton
                 label="bapteme"
                 imageUrl="/bapteme.png"
-                onClick={handleButtonClick}
+                onClick={() => setSelectedCategory("couple")}
               />
               <BubbleButton
                 label="portrait"
                 imageUrl="/portrait.png"
-                onClick={handleButtonClick}
+                onClick={() => setSelectedCategory("portrait")}
               />
               <BubbleButton
                 label="famille"
                 imageUrl="/famille.png"
-                onClick={handleButtonClick}
+                onClick={() => setSelectedCategory("famille")}
               />
               
             </div>

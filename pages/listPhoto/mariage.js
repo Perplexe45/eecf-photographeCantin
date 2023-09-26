@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import styles from './../../src/app/page.module.css'
 
-export default function CouplePage() {
+export default function MariagePage() {
   const router = useRouter();
   const { id } = router.query;
 
