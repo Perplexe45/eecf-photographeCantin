@@ -20,5 +20,8 @@
     "react-dom": "18.2.0",
     "strapi-plugin-populate-deep": "^3.0.0",
     "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "20.7.0"
   }
 }
