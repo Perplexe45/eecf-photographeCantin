@@ -17,7 +17,7 @@ export default function Contact() {
     const formData = new FormData(e.target); // Événement du formulaire : soumission
 
     try {
-      const response = await fetch("http://localhost:1337/api/contacts", {
+      const response = await fetch("https://cantin.onrender.com/api/contacts", {
         method: "POST",
         body: JSON.stringify({
           // Création de l'objet JSON pour Strapi

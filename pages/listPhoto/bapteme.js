@@ -18,7 +18,7 @@ export default function BaptemePage() {
 
   useEffect(() => {
     // Effectue la requête pour obtenir les données des photos depuis l'API de Strapi
-    fetch(`http://localhost:1337/api/photos/?populate[image][populate]=deep&filters[nom][$contains]=bapteme`)
+    fetch(`https://cantin.onrender.com/api/photos/?populate[image][populate]=deep&filters[nom][$contains]=bapteme`)
       .then((response) => response.json())
       .then((data) => setPhotos(data.data)) //Fait varier le  useState et enregistré dans la variable 'photos'
       .catch((error) => console.error(error));
@@ -48,14 +48,14 @@ export default function BaptemePage() {
             <div
               key={photo.id}
               className="col-md-3 d-flex cursor-pointer photo-frame"
-              onClick={() => openImageFullScreen(`http://localhost:1337${photo.attributes.image.data.attributes.url}`)}
+              onClick={() => openImageFullScreen(`https://cantin.onrender.com${photo.attributes.image.data.attributes.url}`)}
             >
               <div className="photo-frame">
                 {photo.attributes.image && photo.attributes.image.data && photo.attributes.image.data.attributes && (
                   <>
                     <div className="image-container">
                       <Image
-                        src={`http://localhost:1337${photo.attributes.image.data.attributes.url}`}
+                        src={`https://cantin.onrender.com${photo.attributes.image.data.attributes.url}`}
                         alt={photo.attributes.nom}
                         width={imageWidth}
                         height={imageHeight}

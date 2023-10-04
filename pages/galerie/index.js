@@ -29,8 +29,9 @@ export default function Index({ themes }) {
   const paddingValue = 8; //pb avec image des petites vignettes
 
   useEffect(() => { //Utilisation de la bibliothèque axios pour ne pas recharger la page continuellement
-    axios.get("http://localhost:1337/api/photos/?populate[image][populate]=deep") //Requête de Strapi pour les photos.
-      .then((response) => {
+    /* axios.get("http://localhost:1337/api/photos/?populate[image][populate]=deep") //Requête de Strapi en local pour les photos. */
+    axios.get("https://cantin.onrender.com/api/photos/?populate[image][populate]=deep")
+    .then((response) => {
         const data = response.data.data;
         setPhotos(data);
       })
@@ -123,11 +124,11 @@ export default function Index({ themes }) {
                   backgroundColor: '#f0f0f0', // Couleur de fond pour l'encadré des photos
               }} onClick={() =>
                 openImageFullScreen(
-                  `http://localhost:1337${photo.attributes.image.data.attributes.url}`
+                  `https://cantin.onrender.com${photo.attributes.image.data.attributes.url}`
                 )
               }>  
               <Image 
-                src={`http://localhost:1337${photo.attributes.image.data.attributes.url}`}
+                src={`https://cantin.onrender.com${photo.attributes.image.data.attributes.url}`}
                 alt={photo.attributes.nom}
                 width={250} 
                 height={250} 
