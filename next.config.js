@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['https://cantin.onrender.com'],
+    domains: ['localhost', 'res.cloudinary.com', 'cantin.onrender.com', 'eecf-photographe-cantin.vercel.app'],
   },
 };
 
