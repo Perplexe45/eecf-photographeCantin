@@ -1,9 +1,20 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  reactStrictMode: true,
+  swcMinify: true,
+  optimizeFonts: true,
   images: {
-    domains: ['localhost', 'res.cloudinary.com', 'cantin.onrender.com', 'eecf-photographe-cantin.vercel.app'],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+        pathname: 'datulrhpq/image/upload/*'
+      },
+    ],
+    minimumCacheTTL: 1500000,
   },
 };
 
 module.exports = nextConfig;
+
 
